@@ -14,7 +14,4 @@ RUN apt-get update --allow-releaseinfo-change && \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN sudo apt-get update && \
-    sudo apt-get install iputils-ping
-
 EXPOSE 8501

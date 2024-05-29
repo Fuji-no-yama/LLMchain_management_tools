@@ -259,11 +259,10 @@ if prompt:
     with st.chat_message("assistant"):
         st.markdown(result)
         if tool_choice == "Langfuse":  # langfuseに記録した場合
-            link_message = "[ここにアクセスして記録を確認](http://localhost:3000)"
+            link = os.environ["LANGFUSE_HOST"]
         else:  # langsmithに記録した場合
-            link_message = (
-                "[ここにアクセスして記録を確認](https://smith.langchain.com/)"
-            )
+            link = "https://smith.langchain.com/"
+        link_message = f"[ここにアクセスして記録を確認]({link})"
         st.markdown(link_message)
 
     st.session_state.chat_memory.append(  # メモリへの保存
